@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.Entity;
 @Repository
-public interface BookReopository extends CrudRepository<Books,Integer> {
+public interface BookReopository extends CrudRepository<Books,Long> {
 
 
 
