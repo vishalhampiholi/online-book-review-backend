@@ -3,6 +3,8 @@ package com.bootstore.bookreview.controller;
 import com.bootstore.bookreview.model.Books;
 import com.bootstore.bookreview.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Book;
@@ -32,9 +34,9 @@ public class BookController {
     }
 
     @DeleteMapping("/deleteBook/{id}")
-    public ResponseBody deleteBook(@PathVariable Long id ){
+    public ResponseEntity<?> deleteBook(@PathVariable Long id ){
         bookService.deleteBook(id);
-        return  null;
+        return  ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @GetMapping("/getBookById/{id}")
