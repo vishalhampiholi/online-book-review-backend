@@ -1,5 +1,6 @@
 package com.bootstore.bookreview.controller;
 
+import com.bootstore.bookreview.model.BookDetailDto;
 import com.bootstore.bookreview.model.Books;
 import com.bootstore.bookreview.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @RestController
@@ -43,5 +43,23 @@ public class BookController {
     public Books getBookById(@PathVariable Long id){
         return  bookService.getBookByID(id);
     }
+
+    @GetMapping("/getBookDetails/{id}")
+    public  BookDetailDto getBookDetails(@PathVariable Long id){
+       return bookService.getBookDetails(id);
+    }
+
+    @PostMapping("/bookStatus/{bookId}")
+    public ResponseEntity<?> setBookStatus(@PathVariable Long bookId, @RequestParam Boolean bookStatus){
+        bookService.setBookStatus( bookId, bookStatus);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PostMapping("/bookLike/{bookId}")
+    public ResponseEntity<?> addLikes(@PathVariable Long bookId){
+        bookService.addLikes(bookId);
+        return  ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 
 }
