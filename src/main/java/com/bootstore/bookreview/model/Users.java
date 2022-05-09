@@ -14,8 +14,6 @@ public class Users {
     @Column(unique = true)
     private String email;
     private String password;
-    private boolean enabled;
-
     private String role;
     public Long getId() {
         return id;
@@ -26,14 +24,6 @@ public class Users {
     }
 
     private String username;
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public String getUsername() {
         return username;

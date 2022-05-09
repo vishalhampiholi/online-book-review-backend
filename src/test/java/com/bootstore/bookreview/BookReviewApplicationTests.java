@@ -30,7 +30,6 @@ class BookReviewApplicationTests {
 		user.setEmail("ravikumar@gmail.com");
 		user.setPassword("ravi2020");
 		user.setUsername("ravi");
-		user.setEnabled(true);
 		user.setRole("User");
 
 		Users savedUser = userRepo.save(user);
