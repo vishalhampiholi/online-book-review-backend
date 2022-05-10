@@ -1,5 +1,7 @@
 package com.bootstore.bookreview.controller;
 
+import com.bootstore.bookreview.model.CommentReqDto;
+import com.bootstore.bookreview.model.Comments;
 import com.bootstore.bookreview.model.Users;
 import com.bootstore.bookreview.repo.UserRepository;
 import com.bootstore.bookreview.service.UserService;
@@ -30,6 +32,7 @@ public class UserController {
         user.setPassword(encodedpass);
         return userService.saveUser(user);
     }
+
     @GetMapping("/getUser/{name}")
     public Users getUser(@PathVariable String name){
         return userService.getUserByName(name);
@@ -60,4 +63,12 @@ public class UserController {
         userRepository.save(curr);
     return curr;
     }
+
+
+    @PostMapping("/addComment")
+    public ResponseEntity<?> addAUserCommentOnBook(@RequestBody CommentReqDto commentDto){
+        userService.addComment(commentDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
 }

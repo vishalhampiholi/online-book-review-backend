@@ -1,30 +1,17 @@
 package com.bootstore.bookreview.model;
 
-import org.hibernate.annotations.ColumnDefault;
+import java.util.List;
 
-import javax.persistence.*;
-
-@Entity
-public class Books {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id", nullable = false)
-    private Long id;
+public class BookDetailDto {
 
     private String book_name;
     private double price;
     private String seller_info;
     private String author;
-    @Lob
-    @Column(length = 500)
-    private String description;
-    @Column(name="likes", columnDefinition = "int default 0")
+    private List<Comments> commentsList;
+    private int rating;
     private int likes;
-    private boolean isActive;
-
-    public Long getId() {
-        return id;
-    }
+    private String description;
 
     public String getBook_name() {
         return book_name;
@@ -58,14 +45,21 @@ public class Books {
         this.author = author;
     }
 
-    public String getDescription() {
-        return description;
+    public List<Comments> getCommentsList() {
+        return commentsList;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCommentsList(List<Comments> commentsList) {
+        this.commentsList = commentsList;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public int getLikes() {
         return likes;
@@ -75,15 +69,11 @@ public class Books {
         this.likes = likes;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getDescription() {
+        return description;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
