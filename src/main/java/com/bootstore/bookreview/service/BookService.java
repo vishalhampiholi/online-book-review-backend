@@ -41,6 +41,7 @@ public class BookService {
 
     public Books editBook(Books book) {
       Books dbbook=getBookByID(book.getId());
+      dbbook.setId(book.getId());
       dbbook.setBook_name(book.getBook_name());
       dbbook.setAuthor(book.getAuthor());
       dbbook.setDescription(book.getDescription());
