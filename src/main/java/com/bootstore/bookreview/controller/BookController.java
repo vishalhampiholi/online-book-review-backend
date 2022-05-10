@@ -2,6 +2,7 @@ package com.bootstore.bookreview.controller;
 
 import com.bootstore.bookreview.model.BookDetailDto;
 import com.bootstore.bookreview.model.Books;
+import com.bootstore.bookreview.model.Comments;
 import com.bootstore.bookreview.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
