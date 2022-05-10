@@ -1,7 +1,9 @@
 package com.bootstore.bookreview.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Comments {
@@ -9,11 +11,16 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    private LocalDateTime createdTime;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdTime;
+
     @ManyToOne
+    @JoinColumn(name="user_id")
     private Users user;
 
     @ManyToOne
+    @JoinColumn(name="book_id")
     private Books book;
 
     private String text;
@@ -22,11 +29,11 @@ public class Comments {
         return user;
     }
 
-    public LocalDateTime getCreatedTime() {
+    public Date getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(LocalDateTime createdTime) {
+    public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
     }
 

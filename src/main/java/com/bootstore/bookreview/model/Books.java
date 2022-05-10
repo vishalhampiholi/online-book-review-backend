@@ -18,8 +18,6 @@ public class Books {
     @Lob
     @Column(length = 500)
     private String description;
-    @Column(name="ratings" ,columnDefinition = "int default 0")
-    private int rating;
     @Column(name="likes", columnDefinition = "int default 0")
     private int likes;
     public Long getId() {
@@ -64,14 +62,6 @@ public class Books {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 
 
